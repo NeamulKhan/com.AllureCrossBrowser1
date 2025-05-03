@@ -19,9 +19,10 @@ public class BaseClassAllureCrossBrowser1 {
 	
 	
 	public BaseClassAllureCrossBrowser1 () {
-		
+			
 		try {
-			FileInputStream file = new FileInputStream ("src/test/resource/allureCrossBrowser1.config/AllureCrossBrowser1.properties");
+					
+			FileInputStream file = new FileInputStream(System.getProperty("user.dir") + "/src/test/resources/allureCrossBrowser1.config/AllureCrossBrowser1.properties");
 			
 			allureCrossBrowser1_prop = new Properties();
 			allureCrossBrowser1_prop.load(file);
@@ -33,17 +34,17 @@ public class BaseClassAllureCrossBrowser1 {
 		    System.err.println("Error loading properties file: " + e.getMessage());
 		}
 		
-		
-	}
+		}
+	
 	
 	public void allureCrossBrowser1_initializeDriver(String browser) {
 		
-	//	String browser = System.getProperty("browser", allureCrossBrowser1_prop.getProperty("browser"));
-		
-		
+	//	String browser = System.getProperty("browser", allureCrossBrowser1_prop.getProperty("browser"));  
+	
+				
 		 if (driver.get() == null) {
 			 
-		 }
+		 
 	            switch (browser.toLowerCase()) {
 	            
 	                case "chrome":
@@ -67,7 +68,7 @@ public class BaseClassAllureCrossBrowser1 {
 				getDriver().manage().deleteAllCookies();
 	
 			}
-	
+		}
 	
 		//Getter method to retrieve WebDriver instance
 		public static WebDriver getDriver() {
